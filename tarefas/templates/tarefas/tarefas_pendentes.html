@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+    {% block title %}Tarefas pendentes{% endblock %}
+
+    {% block content %}
+            <div class="h-100 p-5 bg-light border rounded-3">
+              <h1>Adicionar Tarefa</h1>
+              <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <br>
+                <input type="submit" value="Salvar">
+              </form>
+            </div>
+
+            <h1>Tarefas Pendentes:</h1>
+            <div class="list-group">
+              {% for tarefa in tarefas_pendentes %}
+                {% if tarefa.categoria == 'urgente' %}
+                <button type="button" class="list-group-item list-group-item-danger list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal{{ tarefa.id }}">
+                {% else %}
+                  {% if tarefa.categoria == 'importante' %}
+                  <button type="button" class="list-group-item list-group-item-warning list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal{{ tarefa.id }}">
+                  {% else %}
+                  <button type="button" class="list-group-item list-group-item-primary list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal{{ tarefa.id }}">
+                  {% endif %}
+                {% endif %}
+                <h5>{{ tarefa.descricao }}</h5>
+                  <small>Criado em: {{ tarefa.criacao.day }}/{{ tarefa.criacao.month }}/{{ tarefa.criacao.year }}&lt;/small>
+                  </button>
+                <!-- Modal -->
+                <div class="modal fade" id="modal{{ tarefa.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{ tarefa.descricao }} | {{ tarefa.categoria|capfirst }}&lt;/h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&lt;/button>
+                      </div>
+                      <div class="modal-body">
+                        <p>
+                          Modal Body
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+    {% endblock %}
