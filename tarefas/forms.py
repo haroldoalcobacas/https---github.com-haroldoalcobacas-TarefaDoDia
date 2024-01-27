@@ -12,7 +12,7 @@ class EditarTarefa(forms.Form):
     Opcoes_Categoria = (
         ('urgente','Urgente'),
         ('importante', 'Importante'),
-        ('precisa ser feito', 'Precisa ser feito'),
+        ('comum', 'Comum'),
     )
 
     tarefa = forms.CharField(max_length=400)

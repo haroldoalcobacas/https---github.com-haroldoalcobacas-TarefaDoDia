@@ -9,11 +9,11 @@ class Tarefa(models.Model):
     Opcoes_Categoria = (
         ('urgente','Urgente'),
         ('importante', 'Importante'),
-        ('precisa ser feito', 'Precisa ser feito'),
+        ('comum', 'Comum'),
     )
 
     descricao = models.CharField(max_length=200)
     criacao = models.DateTimeField(auto_now_add = True)
-    categoria = models.CharField(max_length=25, choices=Opcoes_Categoria, default = 'importante')
+    categoria = models.CharField(max_length=25, choices=Opcoes_Categoria, default = 'comum')
     status = models.CharField(max_length=25, choices = Opcoes_Status, default='pendente')
 

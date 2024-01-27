@@ -7,4 +7,7 @@ urlpatterns = [
     path('<int:tarefa_id>/excluir/', views.excluir_tarefa, name='excluir_tarefa'),
     path('<int:tarefa_id>/adiar/', views.adiar_tarefa, name='adiar_tarefa'),
     path('<int:tarefa_id>/editar/', views.editar_tarefa, name='editar_tarefa'),
+    path('concluidas/', views.tarefas_concluidas_list, name = 'tarefas_concluidas_list'),
+    path('adiadas/', views.tarefas_adiadas_list, name = 'tarefas_adiadas_list'),
+    path('<int:tarefa_id>/mover_tarefa/', views.mover_tarefa, name='mover_tarefa'),
 ]

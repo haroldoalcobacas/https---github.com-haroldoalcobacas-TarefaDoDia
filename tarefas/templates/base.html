@@ -11,14 +11,14 @@
   <body style = "padding-top:70px">
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Sistema de Tarefas</a>
+          <a class="navbar-brand" href="{% url 'tarefas_pendentes_list' %}">Sistema de Tarefas</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Tarefas</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'tarefas_pendentes_list' %}">Tarefas</a>
               </li>
               
               <li class="nav-item dropdown">
@@ -26,8 +26,8 @@
                   Outras Tarefas
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Adiadas</a></li>
-                  <li><a class="dropdown-item" href="#">Concluídas</a></li>
+                  <li><a class="dropdown-item" href="{% url 'tarefas_adiadas_list' %}">Adiadas</a></li>
+                  <li><a class="dropdown-item" href="{% url 'tarefas_concluidas_list' %}">Concluídas</a></li>
                  
                 </ul>
               </li>         
