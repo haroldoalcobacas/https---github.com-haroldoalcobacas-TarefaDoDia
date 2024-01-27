@@ -27,15 +27,15 @@
                     {% endif %}
                     {% endif %}
                     <h5>{{ tarefa.descricao }}</h5>
-                    <small>Criado em: {{ tarefa.criacao.day }}/{{ tarefa.criacao.month }}/{{ tarefa.criacao.year }}&lt;/small>
+                    <small>Criado em: {{ tarefa.criacao.day }}/{{ tarefa.criacao.month }}/{{ tarefa.criacao.year }}</small>
                     </button>
                     <!-- Modal -->
                     <div class="modal fade" id="modal{{ tarefa.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">{{ tarefa.descricao }} | {{ tarefa.categoria|capfirst }}&lt;/h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&lt;/button>
+                            <h5 class="modal-title" id="exampleModalLabel">{{ tarefa.descricao }} | {{ tarefa.categoria|capfirst }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <p>
