@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.shortcuts import render, redirect,get_object_or_404
 from .models import Tarefa
 from .forms import AdicionarTarefa, EditarTarefa
@@ -19,7 +20,8 @@ def tarefas_pendentes_list(request):
 
 def concluir_tarefa(request, tarefa_id):
     tarefa = get_object_or_404(Tarefa, id=tarefa_id)
-    tarefa.status = 'concluído'
+    tarefa.status = 'concluída'
+    tarefa.conclusao = timezone.now()
     tarefa.save()
     return redirect('tarefas_pendentes_list')
 
@@ -31,7 +33,7 @@ def excluir_tarefa(request, tarefa_id):
 
 def adiar_tarefa(request, tarefa_id):
     tarefa = get_object_or_404(Tarefa, id=tarefa_id)
-    tarefa.status = 'adiado'
+    tarefa.status = 'adiada'
     tarefa.save()
     return redirect('tarefas_pendentes_list')
 
@@ -56,7 +58,7 @@ def editar_tarefa(request, tarefa_id):
     return render(request, 'tarefas/editar_tarefa.html', {'tarefa': tarefa, 'form': form})
 
 def tarefas_concluidas_list(request):
-    tarefas_concluidas = Tarefa.objects.filter(status='concluído')
+    tarefas_concluidas = Tarefa.objects.filter(status='concluída')
     return render(request, 'tarefas/tarefas_concluidas.html',
                   {'tarefas_concluidas':tarefas_concluidas})
 

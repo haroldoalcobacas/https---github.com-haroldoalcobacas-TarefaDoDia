@@ -2,9 +2,9 @@ from django.db import models
 
 class Tarefa(models.Model):
     Opcoes_Status = (
-        ('concluído', 'Concluído',),
+        ('concluída', 'Concluída',),
         ('pendente', 'Pendente'),
-        ('adiado', 'Adiado'),
+        ('adiada', 'Adiada'),
     )
     Opcoes_Categoria = (
         ('urgente','Urgente'),
@@ -16,4 +16,5 @@ class Tarefa(models.Model):
     criacao = models.DateTimeField(auto_now_add = True)
     categoria = models.CharField(max_length=25, choices=Opcoes_Categoria, default = 'comum')
     status = models.CharField(max_length=25, choices = Opcoes_Status, default='pendente')
+    conclusao = models.DateTimeField(null=True, blank=True)
 

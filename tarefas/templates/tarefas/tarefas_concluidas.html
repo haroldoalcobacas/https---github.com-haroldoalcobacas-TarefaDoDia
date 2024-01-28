@@ -5,7 +5,7 @@
 
 {% block content %}
     <div class="h-100 p-5 bg-light border rounded-3">
-        <h1> Tarefas Concluídas: </h1>
+        <h2> Tarefas Concluídas: </h2>
        
         <div class="list-group">
             {% for tarefa in tarefas_concluidas %}
@@ -13,6 +13,7 @@
                 
                 <h5>{{ tarefa.descricao }}</h5>
                 <small>Criado em: {{ tarefa.criacao.day }}/{{ tarefa.criacao.month }}/{{ tarefa.criacao.year }}</small>
+                <small> - Conluída em: {{ tarefa.conclusao.day}}/{{ tarefa.criacao.month }}/{{ tarefa.criacao.year }}</small>
                 </button>
                 <!-- Modal -->
                 <div class="modal fade" id="modal{{ tarefa.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

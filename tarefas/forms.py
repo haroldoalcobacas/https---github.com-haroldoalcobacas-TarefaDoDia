@@ -6,7 +6,11 @@ from .models import Tarefa
 class AdicionarTarefa(forms.ModelForm):
     class Meta:
         model = Tarefa
-        fields = ('descricao', 'categoria')
+        fields = ['descricao', 'categoria']
+        labels = {
+            'descricao': 'Descrição',
+            'categoria': 'Categoria',
+        }
 
 class EditarTarefa(forms.Form):
     Opcoes_Categoria = (
