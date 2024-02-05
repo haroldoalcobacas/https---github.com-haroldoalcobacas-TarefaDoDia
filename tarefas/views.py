@@ -63,7 +63,7 @@ def tarefas_concluidas_list(request):
                   {'tarefas_concluidas':tarefas_concluidas})
 
 def tarefas_adiadas_list(request):
-    tarefas_adiadas = Tarefa.objects.filter(status='adiado')
+    tarefas_adiadas = Tarefa.objects.filter(status='adiada')
     return render(request,'tarefas/tarefas_adiadas.html', 
                   {'tarefas_adiadas': tarefas_adiadas })
 

@@ -6,18 +6,29 @@ from .models import Tarefa
 class AdicionarTarefa(forms.ModelForm):
     class Meta:
         model = Tarefa
-        fields = ['descricao', 'categoria']
+        fields = ['descricao', 'categoria', 'prazo' ]
         labels = {
             'descricao': 'Descrição',
             'categoria': 'Categoria',
+            'prazo': 'Prazo',  
+        }
+        widgets = {'prazo': forms.DateTimeInput(attrs={'type': 'date' }),
         }
 
 class EditarTarefa(forms.Form):
-    Opcoes_Categoria = (
-        ('urgente','Urgente'),
-        ('importante', 'Importante'),
-        ('comum', 'Comum'),
-    )
+    
+        Opcoes_Categoria = (
+            ('urgente','Urgente'),
+            ('importante', 'Importante'),
+            ('comum', 'Comum'),
+        )
 
-    tarefa = forms.CharField(max_length=400)
-    categoria = forms.ChoiceField(choices=Opcoes_Categoria)
+        descrição = forms.CharField(max_length=400)
+        categoria = forms.ChoiceField(choices=Opcoes_Categoria)
+        widgets = {'conclusao': forms.DateTimeInput(attrs={'type': 'date' }),
+            }
+
+
+
+   
+        

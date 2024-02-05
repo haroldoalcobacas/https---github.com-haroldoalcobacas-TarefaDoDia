@@ -14,6 +14,7 @@
                 
                 <h5>{{ tarefa.descricao }}</h5>
                 <small>Criado em: {{ tarefa.criacao.day }}/{{ tarefa.criacao.month }}/{{ tarefa.criacao.year }}</small>
+                <small> |  Prazo: {{ tarefa.prazo.day }}/{{ tarefa.prazo.month }}/{{ tarefa.prazo.year }} </small>
                 </button>
                 <!-- Modal -->
                 <div class="modal fade" id="modal{{ tarefa.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

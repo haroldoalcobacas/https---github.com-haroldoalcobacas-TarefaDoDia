@@ -5,17 +5,17 @@
 
     {% block content %}
             <div class="h-100 p-5 pt-3 bg-light border rounded-3 ">
-              </h2>Adicionar Tarefa</h2>
+              <h2>Adicionar Tarefa</h2>
                 <form method="post">
-                {% csrf_token %}
-                {{ form | crispy }}
-                <div style="margin-top: 10px;"> <!-- Ajuste o valor conforme necessário -->
-                    <input class="btn btn-success" type="submit" value="Adicionar">
-                </div> 
-                
+                    {% csrf_token %}
+                    {{ form | crispy }}
+
+                        <div style="margin-top: 10px;"> <!-- Ajuste o valor conforme necessário -->
+                            <input class="btn btn-success" type="submit" value="Adicionar">
+                        </div> 
                 </form>
                 <hr>
-            
+
 
                 <h2>Tarefas Pendentes:</h2>
                 <div class="list-group">
@@ -31,6 +31,8 @@
                         {% endif %}
                         <h5>{{ tarefa.descricao }}</h5>
                         <small>Criado em: {{ tarefa.criacao.day }}/{{ tarefa.criacao.month }}/{{ tarefa.criacao.year }}</small>
+                        <small> |  Prazo: {{ tarefa.prazo.day }}/{{ tarefa.prazo.month }}/{{ tarefa.prazo.year }} </small>
+                        <small> | Faltam: {% if tarefa.dia_restante %} {{ tarefa.dia_restante }} dia(s) {% else %} Prazo não definido {% endif %}</small>
                         </button>
                         <!-- Modal -->
                         <div class="modal fade" id="modal{{ tarefa.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
